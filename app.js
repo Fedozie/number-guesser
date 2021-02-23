@@ -1,9 +1,9 @@
 /*GAME FUNCTION:
-    -Players must guess a number between a min and max.
-    -Players get a certain amount of guesses.
-    -Notify players of guesses remaining.
-    -Notfiy players of the right answer if they localStorage.
-    -Let players choose to play again.
+    - Players must guess a number between a min and max.
+    - Players get a certain amount of guesses.
+    - Notify players of guesses remaining.
+    - Notfiy players of the right answer if they localStorage.
+    - Let players choose to play again.
 */
 
 //GAME VALUES
