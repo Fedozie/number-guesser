@@ -20,9 +20,13 @@ const guessBtn = document.querySelector('#guess-btn');
 const guessInput = document.querySelector('#guess-input');
 const message = document.querySelector('.message');
 
-//ASSIGN UI min and max
+//Assign UI min and max
 minNum.textContent = min;
 maxNum.textContent = max;
+
+//Colour codes
+let winColor = '#65EB98';
+let loseColor = '#EB3A2E';
 
 //Play again event listener
 game.addEventListener('mousedown', function(e){
@@ -38,7 +42,7 @@ guessBtn.addEventListener('click', function(){
 
     //Validate Input
     if(isNaN(guess) || guess < min || guess > max){
-        setMessage(`Please enter a number between ${min} and ${max}.`, 'red');
+        setMessage(`Please enter a number between ${min} and ${max}.`, loseColor);
     };
 
     //Check if won
@@ -62,7 +66,7 @@ guessBtn.addEventListener('click', function(){
             //Clear Input
             guessInput.value = '';
             //Set message to show user that they won
-            setMessage(`${guess} is the wrong answer, you have ${guessesLeft} left, TRY AGAIN!`, 'red');
+            setMessage(`${guess} is the wrong answer, you have ${guessesLeft} left, TRY AGAIN!`, loseColor);
         }
     }
 });
@@ -70,18 +74,19 @@ guessBtn.addEventListener('click', function(){
 //Game over function
 function gameOver(won, msg){
     let color;
-    won === true ? color = 'green' : color = 'red';
+    won === true ? color = winColor : color = loseColor;
 
     //Disable input
     guessInput.disabled = true;
     //Change border to green to signify winning
-    guessInput.style.borderColor = "color";
+    guessInput.style.borderColor = color;
     //Set message to show user that they won
     setMessage(msg, color);
 
     //Play again
     guessBtn.value = "Play Again";
     guessBtn.className += "play-again";
+    guessBtn.style.borderColor = '#23ccff';
 }
 
 //Generate Winning Number
